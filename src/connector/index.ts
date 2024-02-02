@@ -1,5 +1,4 @@
-import { Model } from "../model/Model";
-import { RESTAPINetworkConnector } from "./RESTAPINetworkConnector";
+import type { Model } from "../model/Model";
 
 export type IOObject = Record<string, any>;
 
@@ -29,7 +28,7 @@ export type DataIOConnectorListProps = {
   ModelClass: typeof Model;
 };
 
-export type ResponseObject = Record<string, any>
+export type ResponseObject = Record<string, any>;
 
 export interface DataIOConnector {
   create(props: DataIOConnectorCreateProps): Promise<ResponseObject>;
@@ -63,7 +62,3 @@ export interface DataIOConnector {
     ModelClass: T;
   }): Promise<void>;
 }
-
-export const getCurrentIOConnector = (): DataIOConnector => {
-  return new RESTAPINetworkConnector() as any;
-};
